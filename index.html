@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI LLM JavaScript Analyzer</title>
+
+<style>
+body{
+    font-family:Arial,sans-serif;
+    background:#0d1117;
+    color:white;
+    margin:0;
+    padding:20px;
+}
+h1{
+    text-align:center;
+    color:#58a6ff;
+}
+textarea{
+    width:100%;
+    height:250px;
+    background:#161b22;
+    color:#00ff88;
+    border:1px solid #30363d;
+    padding:10px;
+    font-family:Consolas,monospace;
+}
+button{
+    padding:12px 20px;
+    background:#238636;
+    color:white;
+    border:none;
+    cursor:pointer;
+    font-size:16px;
+    margin-top:10px;
+}
+button:hover{
+    background:#2ea043;
+}
+#output{
+    margin-top:20px;
+    background:#161b22;
+    padding:15px;
+    border-radius:8px;
+    white-space:pre-wrap;
+}
+</style>
+
+</head>
+<body>
+
+<h1>🤖 AI LLM JavaScript Analyzer</h1>
+
+<textarea id="code">
+<!DOCTYPE HTML>
+<html>
+<head>
+<title> JavaScript VPSAIDEV </title>
+<meta charset="utf-8">
+</head>
+<body>
+<input type="text" value="hello!" id="myid" />
+<script>
+document.getElementById("myid").value="welcome to my site!";
+alert(document.getElementById("myid").value);
+</script>
+</body>
+</html>
+</textarea>
+
+<br>
+
+<button onclick="analyzeCode()">Analyze Code</button>
+
+<div id="output"></div>
+
+<script>
+function analyzeCode(){
+
+let code=document.getElementById("code").value;
+
+let result="🤖 AI Analysis\n\n";
+
+if(code.includes("getElementById")){
+    result+="✅ Uses document.getElementById() to access an element.\n";
+}
+
+if(code.includes(".value")){
+    result+="✅ Reads or modifies the value of an input field.\n";
+}
+
+if(code.includes("alert(")){
+    result+="✅ Displays a browser alert message.\n";
+}
+
+if(code.includes("<input")){
+    result+="✅ Contains an HTML input control.\n";
+}
+
+result+="\n📖 Program Flow:\n";
+result+="1. Creates a text box.\n";
+result+="2. JavaScript locates the element with id 'myid'.\n";
+result+="3. Changes its value to 'welcome to my site!'.\n";
+result+="4. Displays the value in an alert popup.\n";
+
+result+="\n💡 Suggested Improvements:\n";
+result+="- Use addEventListener().\n";
+result+="- Replace alert() with a modern notification.\n";
+result+="- Add error handling.\n";
+
+document.getElementById("output").innerText=result;
+}
+</script>
+
+</body>
+</html>
